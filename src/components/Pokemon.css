@@ -25,7 +25,7 @@ li {
   list-style-type: none;
 }
 
-.container {
+/* .container {
   min-width: 150rem;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,25 @@ li {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
+} */
+
+
+.container {
+  min-width: 100%; /* Set to 100% for responsiveness */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 3rem;
 }
+
+/* Cards layout for desktop */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+}
+
 
 .pokemon-card {
   width: 30rem;
@@ -64,7 +82,7 @@ li {
     transition: transform 0.3s, box-shadow 0.3s;
   }
 
-  &:hover::before {
+  &:hover:before {
     transition: all 0.3s;
     border-radius: 50% 50% 100% 0% / 99% 100% 0% 1%;
   }
@@ -153,7 +171,36 @@ input {
 
 /*? Media Queries */
 
-@media (width <= 768px ) {
+/* For large devices (desktops and laptops) */
+@media (width <= 1300px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr); /* Adjust to 3 columns */
+  }
+}
+
+/* For medium devices (tablets) */
+@media (width <= 992px) {
+  .container {
+    padding-bottom: 2rem; /* Reduce padding */
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns */
+    gap: 2rem; /* Adjust gap */
+  }
+}
+
+/* For small devices (phones) */
+@media (width <= 670px) {
+  .container {
+    padding-bottom: 1.5rem; /* Further reduce padding */
+  }
+
+  .cards {
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 1.5rem; /* Further reduce gap */
+  }
+
   h1{
     font-size: 2.6rem;
     letter-spacing: 0.1rem;
@@ -166,14 +213,5 @@ input {
   .pokemon-card {
     height: 35rem;
   }
-
-  .container {
-    min-width: 90%;
-  }
-  
-  .cards {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 2rem;
-  }
-   
 }
+

@@ -66,13 +66,14 @@ export const Pokemon = () => {
 
   return (
     <section className="container">
-      <header>
+      <header data-aos="fade-down">
         <h1>Let's Catch Pokemon</h1>
       </header>
       <div className="pokemon-search">
         <input
           type="text"
           placeholder="Search Pokemon"
+          data-aos="fade-right"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
